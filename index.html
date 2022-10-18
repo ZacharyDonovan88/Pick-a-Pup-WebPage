@@ -1,42 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick a Pup</title>
-    <link rel="stylesheet" href="../Pick-a-Pup-WebPage/assets/css/reset.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../Pick-a-Pup-WebPage/assets/css/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pick a Pup</title>
+        <!-- Import Google Font-->
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Mouse+Memoirs&family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Local CSS Stylesheet-->
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
 
-<body>
-    <div class="container">
-        <div>
-            <header><h1>Pick a Pup</h1></header>
-        </div> <br>
-        <div class="critWidth">
-            <input class="form-control mr-sm-2" type="text" placeholder="criteria"/>
-        </div> <br>
-        <div class="critWidth">
-            <input class="form-control mr-sm-2" type="text" placeholder="criteria"/>
-        </div> <br>
-        <div class="critWidth">
-            <input class="form-control mr-sm-2" type="text" placeholder="criteria"/>
-        </div> <br>
-        <div class="critWidth">
-            <input class="form-control mr-sm-2" type="text" placeholder="criteria"/>
-        </div> <br>
-        <div class="critWidth">
-            <input class="form-control mr-sm-2" type="text" placeholder="search"/>
-        </div>
-    </div>
+    <body>
+     
+        <header orange>
+            <div class="row orange col s12 center">
+                <h1>Pick A Pup</h1>
+            </div>
+        </header>
+              
+        <main>
+                <div class="row">
+
+                    <form id="myForm" class="input-field col s12 l4 left blue lighten-2" id="selection">
+                                               
+                        <select id="breedSelection">
+                            <option value="">-----</option>
+                            <option value="Labrador" data-dog-type="labrador">Labrador</option>
+                            <option value="Golden Retriever" data-dog-type="golden retriever">Golden Retriever</option>
+                            <option value="French Bulldog" data-dog-type="french bulldog">French Bulldog</option>
+                            <option value="Beagle" data-dog-type="beagle">Beagle</option>
+                            <option value="German Shepherd" data-dog-type="german shepherd">German Shepherd</option>
+                            <option value="Poodle" data-dog-type="poodle">Poodle</option>
+                            <option value="Border Collie" data-dog-type="border collie">Border Collie</option>
+                            <option value="Boxer" data-dog-type="boxer">Boxer</option>
+                            <option value="Cavalier King Charles Spaniel" data-dog-type="cavalier king charles spaniel">Cavalier King Charles Spaniel</option>
+                            <option value="Schnauzer" data-dog-type="schnauzer">Schnauzer</option>
+                            <option value="Pug" data-dog-type="pug">Pug</option>
+                        </select>
+                        <button type="submit">Submit</button>
+                       
+                    </form>
+
+                    <div class="col s12 l7 right">
+                        <div class="row teal accent-2">
+                            <h3>Wiki Title: testing</h2>
+                            <a>https://.....</a>
+                            <p>Desription............................................................................................................</p>
+                        </div>
+
+                        <div class="row green">
+                            <h3>YouTube</h3>
+                            <div class="video-container">
+                            <iframe width="300" height="200" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                          
+                        </div>
+                    </div>
+
+              </div>
+        </main> 
+        
+       
+        <footer class="page-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">Footer Content</h5>
+                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </footer>
+         
+        
+           
+      
+                 
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!-- Local JavaScript-->
+        <!-- <script src="../Pick-a-Pup-WebPage/assets/JS/style.js"></script> -->
+
+        
+        <script> 
+
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                var userSelection = document.getElementById('breedSelection');
+                console.log(userSelection.value);
+            });
+
+        </script>
+
+        <script> 
+
+            $(document).ready(function(){
+            $('select').formSelect();
+            });
+
+        </script>
+
+       
+
     
-
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-    crossorigin="anonymous"></script>
-    <script src="../Pick-a-Pup-WebPage/assets/JS/style.js"></script>
-</body>
+    </body>
 </html>
