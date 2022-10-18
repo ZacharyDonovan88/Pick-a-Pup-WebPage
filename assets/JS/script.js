@@ -1,13 +1,10 @@
-// var ytApiKey = AIzaSyAR46ogHbJyj4BF-nP-GSiqM5dZI-Xr15w;
 var ytContainer = document.getElementById('youtube-container');
-// var dogList = document.getElementById("(select ID here)");
-// var option = dogList.querySelectorAll("option");
-
 var ytApi = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=AIzaSyAR46ogHbJyj4BF-nP-GSiqM5dZI-Xr15w&q=';
 
 
 function getdatafromyt(option) {
-    fetch(ytApi + 'pug')
+    parentDiv.innerHTML = '';
+    fetch(ytApi + option)
     .then(function (response) {
         return response.json();
     })
@@ -17,23 +14,13 @@ function getdatafromyt(option) {
     })
 };
 
-
+var parentDiv = document.getElementById('videoDiv');
 function ytVideos(results) {
-    // console.log(results);
     for (var i = 0; i < results.length; i++) {
-        var title = document.createElement('h3');
-        var newImg = document.createElement('img');
-        var videoUrl = document.createElement('a');
+        var videoDiv = document.createElement('div');
         
-        title.innerHTML = results[i].snippet.title;
-        videoUrl.setAttribute('href', 'https://www.youtube.com/watch?v=' + (results[i].id.videoId));
-        videoUrl.setAttribute('target', '_blank');
-        newImg.src= results[i].snippet.thumbnails.medium.url;
-        
-        
-        ytContainer.append(title);
-        ytContainer.append(videoUrl);
-        videoUrl.append(newImg);    
+        videoDiv.innerHTML = "<iframe width='420' height='345' src='https://www.youtube.com/embed/" + results[i].id.videoId + "'></iframe>";
+        parentDiv.append(videoDiv);
     }
 };
 
@@ -42,7 +29,7 @@ function ytVideos(results) {
 //     console.log('You selected: ', this.value);
 //   });
 
-getdatafromyt();
+// getdatafromyt();
 
 var dogApi = 'https://api.thedogapi.com/v1/breeds/';
 
@@ -56,4 +43,4 @@ function getdatafromdog() {
     })
 }
 
-getdatafromdog();
+// getdatafromdog();

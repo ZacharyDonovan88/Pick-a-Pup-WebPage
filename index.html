@@ -68,11 +68,8 @@
 
                         <div class="row green">
                             <h3>YouTube</h3>
-                            <div class= "col left">
-                                <iframe width="420" height="345" src="https://www.youtube.com/embed/Q8TXgCzxEnw"></iframe>
-                                <iframe width="420" height="345" src="https://www.youtube.com/embed/Q8TXgCzxEnw"></iframe>
-                                <iframe width="420" height="345" src="https://www.youtube.com/embed/Q8TXgCzxEnw"></iframe>
-                                                    
+                            <div class= "col left" id="videoDiv">
+                                 
                             </div>
                          
                              
@@ -121,6 +118,7 @@
 
                 var userSelection = document.getElementById('breedSelection');
                 console.log(userSelection.value);
+                getdatafromyt(userSelection.value);
             });
 
         </script>
@@ -135,6 +133,6 @@
 
        
 
-    
+        <script src= "assets/JS/script.js"></script>
     </body>
 </html>
