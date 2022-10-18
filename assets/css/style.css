@@ -4,12 +4,13 @@ body {
     flex-direction: column;
     font-family: 'Bree Serif', serif;
     font-family: 'Mouse Memoirs', sans-serif;
+    background-image: ;
     
   }
 
   main {
     flex: 1 0 auto;
-    padding: 2rem;
+    /* padding: 2rem; */
   }
   /*Above CSS ensures sticky footer for Materialize CSS*/
   
@@ -17,3 +18,5 @@ body {
     font-family: 'Mouse Memoirs'sans-serif;
     font-size: 30px; 
   }
+
+  /*<img class="responsive-img left" src="./assets/images/pexels-steshka-willems-1390361.jpg">
