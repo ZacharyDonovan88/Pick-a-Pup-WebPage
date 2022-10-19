@@ -17,16 +17,17 @@
 
     <body>
      
-        <header orange>
-            <div class="row orange col s12 center">
-                <h1>Pick A Pup</h1>           
+        <header class="teal darken-1" >
+            <div class="row col s12 center white-text">
+                <h1>Pick A Pup</h1> 
+                <h4>Select a breed and find your perfect companion!</h4>          
             </div>
         </header>
               
-        <main>
+        <main class="teal lighten-5">
                 <div class="row">
 
-                    <form id="myForm" class="input-field col s12 l4 left blue lighten-2" id="selection">
+                    <form id="myForm" class="input-field col s12 l4 left" id="selection">
                                                
                         <select id="breedSelection">
                             <option value="">-----</option>
@@ -42,33 +43,36 @@
                             <option value="Schnauzer" data-dog-type="schnauzer">Schnauzer</option>
                             <option value="Pug" data-dog-type="pug">Pug</option>
                         </select>
-                        <button type="submit">Submit</button>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                        <!-- <button type="submit">Submit</button> -->
+                        <img class="materialboxed" width="200"  id="dogimage" >
+                        <!-- src="./assets/images/pexels-steshka-willems-1390361.jpg"> -->
                        
                     </form>
                    
                     <div class="col s12 l8 right">
-                        <div class="row teal accent-2">
-                            <h5>Wiki Title: testing</h5>
-                            <a>https://.....</a>
-                            <p>Desription............................................................................................................</p>
-                            <h5>Wiki Title: testing</h5>
-                            <a>https://.....</a>
-                            <p>Desription............................................................................................................</p>
-                            <h5>Wiki Title: testing</h5>
-                            <a>https://.....</a>
-                            <p>Desription............................................................................................................</p>
-                            <h5>Wiki Title: testing</h5>
-                            <a>https://.....</a>
-                            <p>Desription............................................................................................................</p>
-                            <h5>Wiki Title: testing</h5>
-                            <a>https://.....</a>
-                            <p>Desription............................................................................................................</p>
-                        </div>
+                        <div class="row">
+                          <h5>Your new Pup could be: </h5>
+                           <div class="col s6">
+                            <p id="bred_for">Lapdog</p>
+                            <p id="breed_group">Toy</p>
+                            <p id="breed_nam">breed</p>
+                            <p id="height">metric?</p>
+                           </div>
+                           
+                           <div class="col s6">
+                            <p id="life_span">years</p>
+                            <p id="temperament">temperament</p>
+                            <p id="weight">weight</p>
+                           </div>
+                            
+                         </div>
                      
-
-                        <div class="row green">
+                        <div class="row">
                             <h3>YouTube</h3>
-                            <div class= "col left" id="videoDiv">
+                            <div class= "col" id="videoDiv">
                                  
                             </div>
                          
@@ -76,63 +80,49 @@
                           
                         </div>
                     </div>
-
               </div>
         </main> 
         
        
-        <footer class="page-footer">
+        <footer class="page-footer teal">
             <div class="container">
               <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="white-text">Footer Content</h5>
-                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Links</h5>
-                  <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  </ul>
+                <div class="col l12 s12">
+                  <h5 class="white-text center-align">Bootcamp Group A Project #1</h5>
                 </div>
               </div>
             </div>
         </footer>
          
-        
-           
-      
-                 
+                       
         <!-- Compiled and minified JavaScript -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
         <!-- Local JavaScript-->
         <!-- <script src="../Pick-a-Pup-WebPage/assets/JS/style.js"></script> -->
-
         
         <script> 
-
             document.getElementById('myForm').addEventListener('submit', function(event) {
                 event.preventDefault();
-
                 var userSelection = document.getElementById('breedSelection');
                 console.log(userSelection.value);
                 getdatafromyt(userSelection.value);
+                getdatafromdog();
             });
-
         </script>
 
         <script> 
-
             $(document).ready(function(){
             $('select').formSelect();
             });
-
         </script>
 
+        <script>
+        $(document).ready(function(){
+            $('.materialboxed').materialbox();
+          });
+                </script>
        
-
         <script src= "assets/JS/script.js"></script>
     </body>
 </html>

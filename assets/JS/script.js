@@ -34,6 +34,8 @@ function ytVideos(results) {
 var dogApi = 'https://api.thedogapi.com/v1/breeds/';
 
 function getdatafromdog() {
+    var godimage = document.getElementById('dogimage').src = "./assets/images/pexels-steshka-willems-1390361.jpg" ;
+ 
     fetch(dogApi + '201')
     .then(function (response) {
         return response.json();
