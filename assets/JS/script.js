@@ -34,8 +34,7 @@ function ytVideos(results) {
 
 var dogApi = 'https://api.thedogapi.com/v1/breeds/';
 
-function getdatafromdog() {
-    var godimage = document.getElementById('dogimage').src = "./assets/images/pexels-steshka-willems-1390361.jpg" ;
+
  
     fetch(dogApi + '201')
     .then(function (response) {
@@ -49,6 +48,7 @@ function getdatafromdog() {
 // getdatafromdog();
 */
 
+//function getdatafromdog() {
 
 
 var selectList = document.getElementById("breedSelection").option;
@@ -133,7 +133,7 @@ fetch(dogApi + chosenDogId)
 .then(function (data) {
     console.log(data);
     var dogHeightEl = document.getElementById('height');
-    dogHeightEl.innerHTML = data.height;    
+    dogHeightEl.innerHTML = data.height.metric;    
 })
 
 
@@ -175,7 +175,28 @@ fetch(dogApi + chosenDogId)
 .then(function (data) {
     console.log(data);
     var dogWeightEl = document.getElementById('weight');
-    dogWeightEl.innerHTML = data.weight;    
+    dogWeightEl.innerHTML = data.weight.metric;    
+})
+
+fetch(dogApi + chosenDogId)
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    console.log(data);
+    var imgSrc = "https://cdn2.thedogapi.com/images/"
+    var dogPicEl = document.getElementById('dogimage');
+    dogPicEl.src = imgSrc + data.reference_image_id + ".jpg"
+})
+
+fetch(dogApi + chosenDogId)
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    console.log(data);
+    var dogGroupEl = document.getElementById('breed_group');
+    dogGroupEl.innerHTML = data.breed_group;    
 })
 
 }
