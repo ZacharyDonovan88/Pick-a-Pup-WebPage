@@ -24,33 +24,6 @@ function ytVideos(results) {
     }
 };
 
-/*
-// https://www.
-// document.getElementById('option').addEventListener('change', function() {
-//     console.log('You selected: ', this.value);
-//   });
-
-// getdatafromyt();
-
-var dogApi = 'https://api.thedogapi.com/v1/breeds/';
-
-
- 
-    fetch(dogApi + '201')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-}
-
-// getdatafromdog();
-*/
-
-//function getdatafromdog() {
-
-
 var selectList = document.getElementById("breedSelection").option;
 console.log("breedSelection");
 
@@ -79,39 +52,40 @@ var dogApi = 'https://api.thedogapi.com/v1/breeds/';
 
 
 function getdatafromdog(dogTypeAsString) {
+    var chosenDogId = '';
     switch (dogTypeAsString) {
         case 'Labrador':
-            var chosenDogId = '149';
+            chosenDogId = '149';
             break;
         case 'Golden Retriever':
-            var chosenDogId = '121';
+            chosenDogId = '121';
             break;
         case 'French Bulldog':
-            var chosenDogId = '113';
+            chosenDogId = '113';
             break;
         case 'Beagle':
-            var chosenDogId = '31';
+            chosenDogId = '31';
             break;
         case 'German Shepherd':
-            var chosenDogId = '115';
+            chosenDogId = '115';
             break;
         case 'Poodle':
-            var chosenDogId = '196';
+            chosenDogId = '196';
             break;
         case 'Border Collie':
-            var chosenDogId = '50';
+            chosenDogId = '50';
             break;            
         case 'Boxer':
-            var chosenDogId = '55';
+            chosenDogId = '55';
             break; 
         case 'Cavalier King Charles Spaniel':
-            var chosenDogId = '71';
+            chosenDogId = '71';
             break; 
         case 'Schnauzer':
-            var chosenDogId = '239';
+            chosenDogId = '239';
             break; 
         case 'Pug':
-            var chosenDogId = '201';
+            chosenDogId = '201';
             break;       
     }
 
@@ -122,84 +96,107 @@ function getdatafromdog(dogTypeAsString) {
     .then(function (data) {
         console.log(data);
         var dogNameEl = document.getElementById('breed_name');
-        dogNameEl.innerHTML = data.name;    
+        dogNameEl.innerHTML = data.name;   
+
+        var dogHeightEl = document.getElementById('height');
+        dogHeightEl.innerHTML = data.height.metric; 
+
+        var dogYearsEl = document.getElementById('life_span');
+        dogYearsEl.innerHTML = data.life_span; 
+        
+        var dogLapDogEl = document.getElementById('bred_for');
+        dogLapDogEl.innerHTML = data.bred_for;
+        
+        var dogTempEl = document.getElementById('temperament');
+        dogTempEl.innerHTML = data.temperament; 
+
+        var dogWeightEl = document.getElementById('weight');
+        dogWeightEl.innerHTML = data.weight.metric; 
+
+        var dogGroupEl = document.getElementById('breed_group');
+        dogGroupEl.innerHTML = data.breed_group;
+
+        var imgSrc = "https://cdn2.thedogapi.com/images/"
+        var dogPicEl = document.getElementById('dogimage');
+        dogPicEl.src = imgSrc + data.reference_image_id + ".jpg"
     })
-
-
-fetch(dogApi + chosenDogId)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    var dogHeightEl = document.getElementById('height');
-    dogHeightEl.innerHTML = data.height.metric;    
-})
-
-
-
-fetch(dogApi + chosenDogId)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    var dogYearsEl = document.getElementById('life_span');
-    dogYearsEl.innerHTML = data.life_span;    
-})
-
-fetch(dogApi + chosenDogId)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    var dogLapDogEl = document.getElementById('bred_for');
-    dogLapDogEl.innerHTML = data.bred_for;    
-})
-
-fetch(dogApi + chosenDogId)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    var dogTempEl = document.getElementById('temperament');
-    dogTempEl.innerHTML = data.temperament;    
-})
-
-fetch(dogApi + chosenDogId)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    var dogWeightEl = document.getElementById('weight');
-    dogWeightEl.innerHTML = data.weight.metric;    
-})
-
-fetch(dogApi + chosenDogId)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    var imgSrc = "https://cdn2.thedogapi.com/images/"
-    var dogPicEl = document.getElementById('dogimage');
-    dogPicEl.src = imgSrc + data.reference_image_id + ".jpg"
-})
-
-fetch(dogApi + chosenDogId)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    var dogGroupEl = document.getElementById('breed_group');
-    dogGroupEl.innerHTML = data.breed_group;    
-})
-
 }
+
+
+// fetch(dogApi + chosenDogId)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+//     var dogHeightEl = document.getElementById('height');
+//     dogHeightEl.innerHTML = data.height.metric;    
+// })
+
+
+
+// fetch(dogApi + chosenDogId)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+//     var dogYearsEl = document.getElementById('life_span');
+//     dogYearsEl.innerHTML = data.life_span;    
+// })
+
+// fetch(dogApi + chosenDogId)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+//     var dogLapDogEl = document.getElementById('bred_for');
+//     dogLapDogEl.innerHTML = data.bred_for;    
+// })
+
+// fetch(dogApi + chosenDogId)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+//     var dogTempEl = document.getElementById('temperament');
+//     dogTempEl.innerHTML = data.temperament;    
+// })
+
+// fetch(dogApi + chosenDogId)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+//     var dogWeightEl = document.getElementById('weight');
+//     dogWeightEl.innerHTML = data.weight.metric;    
+// })
+
+// fetch(dogApi + chosenDogId)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+//     var imgSrc = "https://cdn2.thedogapi.com/images/"
+//     var dogPicEl = document.getElementById('dogimage');
+//     dogPicEl.src = imgSrc + data.reference_image_id + ".jpg"
+// })
+
+// fetch(dogApi + chosenDogId)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+//     var dogGroupEl = document.getElementById('breed_group');
+//     dogGroupEl.innerHTML = data.breed_group;    
+// })
+
+
 
 
 
