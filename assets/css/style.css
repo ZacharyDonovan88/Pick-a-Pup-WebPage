@@ -19,4 +19,15 @@ body {
     font-size: 30px; 
   }
 
-  /*<img class="responsive-img left" src="./assets/images/pexels-steshka-willems-1390361.jpg">
+  /* <img class="responsive-img left" src="./assets/images/pexels-steshka-willems-1390361.jpg">
+
+  labels and text */
+
+  .dogInfoLabel{
+    font-weight: normal;
+    font-size: 20px;
+  }
+
+  #bred_for, #breed_group, #breed_name,#height,#life_span, #temperament,#weight{
+    font-weight: bold;
+  }

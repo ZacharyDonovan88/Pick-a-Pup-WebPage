@@ -19,7 +19,7 @@ function ytVideos(results) {
     for (var i = 0; i < results.length; i++) {
         var videoDiv = document.createElement('div');
         
-        videoDiv.innerHTML = "<iframe width='420' height='345' src='https://www.youtube.com/embed/" + results[i].id.videoId + "'></iframe>";
+        videoDiv.innerHTML = "<iframe width='420' height='345' style='border:0' src='https://www.youtube.com/embed/" + results[i].id.videoId + "'></iframe>";
         parentDiv.append(videoDiv);
     }
 };
