@@ -30,7 +30,7 @@
                     <form id="myForm" class="input-field col s12 l4 left" id="selection">
                                                
                         <select id="breedSelection">
-                            <option value="">-----</option>
+                            <option value="none">-----</option>
                             <option value="Labrador" data-dog-type="labrador" data-dogid="149">Labrador</option>
                             <option value="Golden Retriever" data-dog-type="golden retriever" data-dogid="121">Golden Retriever</option>
                             <option value="French Bulldog" data-dog-type="french bulldog" data-dogid="113">French Bulldog</option>
@@ -112,8 +112,12 @@
             document.getElementById('myForm').addEventListener('submit', function(event) {
                 event.preventDefault();
                 var userSelection = document.getElementById('breedSelection');
-                getdatafromyt(userSelection.value);              
-                getdatafromdog(userSelection.value);
+                if (userSelection.value == 'none') {
+                    return;
+                } else {
+                getdatafromyt(userSelection.value);
+                getdatafromdog();
+                }
             });
         </script>
 
