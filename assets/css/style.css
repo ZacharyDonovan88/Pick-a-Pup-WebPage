@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     font-family: 'Bree Serif', serif;
     font-family: 'Mouse Memoirs', sans-serif;
-    background-image: ;
+    /* background-image: ; */
     
   }
 
@@ -30,4 +30,10 @@ body {
 
   #bred_for, #breed_group, #breed_name,#height,#life_span, #temperament,#weight{
     font-weight: bold;
+  }
+
+  #videoDiv{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 5px;
   }
