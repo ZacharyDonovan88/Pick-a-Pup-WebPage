@@ -19,7 +19,7 @@ function ytVideos(results) {
     for (var i = 0; i < results.length; i++) {
         var videoDiv = document.createElement('div');
         
-        videoDiv.innerHTML = "<iframe width='420' height='345' style='border:0' src='https://www.youtube.com/embed/" + results[i].id.videoId + "'></iframe>";
+        videoDiv.innerHTML = "<iframe width='220' height='145' style='border:0' src='https://www.youtube.com/embed/" + results[i].id.videoId + "'></iframe>";
         parentDiv.append(videoDiv);
     }
 };
@@ -35,7 +35,7 @@ var breedSelectionList = [
     "German Shepherd",
     "Poodle",
     "Border Collie",
-    "Boxer",
+    "BoxerBreed",
     "Cavalier King Charles Spaniel",
     "Schnauzer",
     "Pug",
@@ -75,7 +75,7 @@ function getdatafromdog(dogTypeAsString) {
         case 'Border Collie':
             chosenDogId = '50';
             break;            
-        case 'Boxer':
+        case 'BoxerBreed':
             chosenDogId = '55';
             break; 
         case 'Cavalier King Charles Spaniel':
