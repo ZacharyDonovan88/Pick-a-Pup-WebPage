@@ -1,7 +1,7 @@
-var ytContainer = document.getElementById('youtube-container');
 var ytApi = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&key=AIzaSyAR46ogHbJyj4BF-nP-GSiqM5dZI-Xr15w&q=';
+var dogApi = 'https://api.thedogapi.com/v1/breeds/';
 
-
+// Gets user selected option and adds it to the end of the youtube api, which returns top 3 search results from youtube
 function getdatafromyt(option) {
     parentDiv.innerHTML = '';
     fetch(ytApi + option)
@@ -14,47 +14,21 @@ function getdatafromyt(option) {
     })
 };
 
+// Uses data from fetch to create 3 youtube iframes and append each of them to the 'videoDiv' div 
 var parentDiv = document.getElementById('videoDiv');
 function ytVideos(results) {
     for (var i = 0; i < results.length; i++) {
         var videoDiv = document.createElement('div');
-        
-        videoDiv.innerHTML = "<iframe width='220' height='145' style='border:0' src='https://www.youtube.com/embed/" + results[i].id.videoId + "'></iframe>";
+        videoDiv.innerHTML = "<iframe width='220' height='145' style='border:0' src='https://www.youtube.com/embed/" + results[i].id.videoId + "' allowfullscreen></iframe>";
         parentDiv.append(videoDiv);
     }
 };
 
-var selectList = document.getElementById("breedSelection").option;
-console.log("breedSelection");
-
-var breedSelectionList = [
-    'Labrador',
-    "Golden Retriever",
-    "French Bulldog",
-    "Beagle",
-    "German Shepherd",
-    "Poodle",
-    "Border Collie",
-    "BoxerBreed",
-    "Cavalier King Charles Spaniel",
-    "Schnauzer",
-    "Pug",
-    ]
-
-
-var optionList = (breedSelectionList + selectList);
-
-
-var dogApi = 'https://api.thedogapi.com/v1/breeds/';
-
-
-
-
-
+// Changes user selected string to an ID, as the dog api uses IDs as a reference not breed names
 function getdatafromdog(dogTypeAsString) {
     var chosenDogId = '';
     switch (dogTypeAsString) {
-        case 'Labrador':
+        case 'Labrador Dog':
             chosenDogId = '149';
             break;
         case 'Golden Retriever':
@@ -84,15 +58,17 @@ function getdatafromdog(dogTypeAsString) {
         case 'Schnauzer':
             chosenDogId = '239';
             break; 
-        case 'Pug':
+        case 'Pug Dog':
             chosenDogId = '201';
             break;       
     }
 
+    // Appends ID to the dog api and returns data for selected breed
     fetch(dogApi + chosenDogId)
     .then(function (response) {
         return response.json();
     })
+    // Adds relevent text using fetch data to appropriate sections
     .then(function (data) {
         console.log(data);
         var dogNameEl = document.getElementById('breed_name');
@@ -116,102 +92,29 @@ function getdatafromdog(dogTypeAsString) {
         var dogGroupEl = document.getElementById('breed_group');
         dogGroupEl.innerHTML = data.breed_group;
 
+        // Displays stored default image for selected breed
         var imgSrc = "https://cdn2.thedogapi.com/images/"
         var dogPicEl = document.getElementById('dogimage');
         dogPicEl.src = imgSrc + data.reference_image_id + ".jpg"
     })
-}
-
-
-// fetch(dogApi + chosenDogId)
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     console.log(data);
-//     var dogHeightEl = document.getElementById('height');
-//     dogHeightEl.innerHTML = data.height.metric;    
-// })
-
-
-
-// fetch(dogApi + chosenDogId)
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     console.log(data);
-//     var dogYearsEl = document.getElementById('life_span');
-//     dogYearsEl.innerHTML = data.life_span;    
-// })
-
-// fetch(dogApi + chosenDogId)
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     console.log(data);
-//     var dogLapDogEl = document.getElementById('bred_for');
-//     dogLapDogEl.innerHTML = data.bred_for;    
-// })
-
-// fetch(dogApi + chosenDogId)
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     console.log(data);
-//     var dogTempEl = document.getElementById('temperament');
-//     dogTempEl.innerHTML = data.temperament;    
-// })
-
-// fetch(dogApi + chosenDogId)
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     console.log(data);
-//     var dogWeightEl = document.getElementById('weight');
-//     dogWeightEl.innerHTML = data.weight.metric;    
-// })
-
-// fetch(dogApi + chosenDogId)
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     console.log(data);
-//     var imgSrc = "https://cdn2.thedogapi.com/images/"
-//     var dogPicEl = document.getElementById('dogimage');
-//     dogPicEl.src = imgSrc + data.reference_image_id + ".jpg"
-// })
-
-// fetch(dogApi + chosenDogId)
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     console.log(data);
-//     var dogGroupEl = document.getElementById('breed_group');
-//     dogGroupEl.innerHTML = data.breed_group;    
-// })
-
-
-
-
-
-/*
-
-function getdatafromyt(option) {
-    parentDiv.innerHTML = '';
-    fetch(ytApi + option)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data.items);
-        ytVideos(data.items);
-    })
 };
-*/
 
+// Runs the youtube and dogApi functions when a valid option is selected and the submit button is clicked
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var userSelection = document.getElementById('breedSelection');
+    if (userSelection.value == 'none') {
+        return;
+    } else {
+    getdatafromyt(userSelection.value);
+    getdatafromdog(userSelection.value);
+    }
+});
+
+$(document).ready(function(){
+    $('select').formSelect();
+});
+
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
+});

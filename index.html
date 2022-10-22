@@ -31,7 +31,7 @@
                                                
                         <select id="breedSelection">
                             <option value="none">-----</option>
-                            <option value="Labrador" data-dog-type="labrador" data-dogid="149">Labrador</option>
+                            <option value="Labrador Dog" data-dog-type="labrador" data-dogid="149">Labrador</option>
                             <option value="Golden Retriever" data-dog-type="golden retriever" data-dogid="121">Golden Retriever</option>
                             <option value="French Bulldog" data-dog-type="french bulldog" data-dogid="113">French Bulldog</option>
                             <option value="Beagle" data-dog-type="beagle" data-dogid="31">Beagle</option>
@@ -41,7 +41,7 @@
                             <option value="BoxerBreed" data-dog-type="boxer" data-dogid="55">Boxer</option>
                             <option value="Cavalier King Charles Spaniel" data-dog-type="cavalier king charles spaniel" data-dogid="71">Cavalier King Charles Spaniel</option>
                             <option value="Schnauzer" data-dog-type="schnauzer" data-dogid="239">Schnauzer</option>
-                            <option value="Pug" data-dog-type="pug" data-dogid="201">Pug</option>
+                            <option value="Pug Dog" data-dog-type="pug" data-dogid="201">Pug</option>
                         </select>
                         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
@@ -79,18 +79,12 @@
                         <!-- videoDIV displays videos from YouTube API when breed is selected and submitted by the user -->
                         <div class="row">
                             <h3>YouTube</h3>
-                            <div class= "col" id="videoDiv">
-                                 
-                            </div>
-                         
-                             
-                          
+                            <div class= "col" id="videoDiv"></div>
                         </div>
                     </div>
               </div>
         </main> 
         
-       
         <footer class="page-footer teal">
             <div class="container">
               <div class="row">
@@ -105,34 +99,6 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- Local JavaScript-->
-        <!-- <script src="../Pick-a-Pup-WebPage/assets/JS/style.js"></script> -->
-        
-        <script> 
-            document.getElementById('myForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-                var userSelection = document.getElementById('breedSelection');
-                if (userSelection.value == 'none') {
-                    return;
-                } else {
-                getdatafromyt(userSelection.value);
-                getdatafromdog(userSelection.value);
-                }
-            });
-        </script>
-
-        <script> 
-            $(document).ready(function(){
-            $('select').formSelect();
-            });
-        </script>
-
-        <script>
-        $(document).ready(function(){
-            $('.materialboxed').materialbox();
-          });
-                </script>
-       
         <script src= "assets/JS/script.js"></script>
     </body>
 </html>
